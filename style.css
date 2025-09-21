@@ -39,11 +39,23 @@ header p {
 
 /* Timeline section styles */
 section {
-  display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap to next line */
-  justify-content: center; /* Center the cards horizontally */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row; /* Arrange cards in a row */
+  overflow-x: auto; /* Enable horizontal scrolling */
   gap: 24px; /* Space between cards */
   padding: 32px 16px;
+  justify-content: flex-start; /* Align cards to the left */
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Hide scrollbar for timeline section (optional, for cleaner look) */
+section::-webkit-scrollbar {
+  height: 8px;
+  background: #eee;
+}
+section::-webkit-scrollbar-thumb {
+  background: #b3c6e0;
+  border-radius: 4px;
 }
 
 /* Timeline card styles */
@@ -54,6 +66,7 @@ section > div {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Soft shadow */
   padding: 20px;
   width: 260px; /* Fixed width for cards */
+  flex: 0 0 auto; /* Prevent cards from shrinking */
   transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
   text-align: center; /* Center text and images */
 }
@@ -122,10 +135,11 @@ body > p {
 /* Responsive: stack cards on small screens */
 @media (max-width: 700px) {
   section {
-    flex-direction: column;
+    flex-direction: column; /* Stack cards vertically */
     align-items: center;
     gap: 16px;
     padding: 16px 4px;
+    overflow-x: visible; /* Remove horizontal scroll */
   }
   section > div {
     width: 95%;
