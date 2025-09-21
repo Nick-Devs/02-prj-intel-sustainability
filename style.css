@@ -38,7 +38,7 @@ header p {
 }
 
 /* Timeline section styles */
-section {
+.timeline-section {
   display: flex; /* Use flexbox for layout */
   flex-direction: row; /* Arrange cards in a row */
   overflow-x: auto; /* Enable horizontal scrolling */
@@ -49,17 +49,17 @@ section {
 }
 
 /* Hide scrollbar for timeline section (optional, for cleaner look) */
-section::-webkit-scrollbar {
+.timeline-section ::-webkit-scrollbar {
   height: 8px;
   background: #eee;
 }
-section::-webkit-scrollbar-thumb {
+.timeline-section ::-webkit-scrollbar-thumb {
   background: #b3c6e0;
   border-radius: 4px;
 }
 
 /* Timeline card styles */
-section > div {
+.timeline-section  > div {
   background: white;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
@@ -72,27 +72,27 @@ section > div {
 }
 
 /* Card hover effect */
-section > div:hover {
+.timeline-section  > div:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 6px 20px rgba(0,104,181,0.15);
   border-color: #0068b5;
 }
 
 /* Card headings */
-section h2 {
+.timeline-section  h2 {
   margin: 0;
   color: #0068b5; 
   font-size: 1.4em;
 }
 
-section h3 {
+s.timeline-section ection h3 {
   margin: 8px 0 12px 0;
   font-size: 1.1em;
   color: #333;
 }
 
 /* Card images: make images fill the card width */
-section img {
+.timeline-section  img {
   width: 100%; /* Image fills the card horizontally */
   height: 160px; /* Fixed height for all images */
   object-fit: cover; /* Crop image to fit nicely */
@@ -102,12 +102,12 @@ section img {
 }
 
 /* Hide the card text by default */
-section > div p {
+.timeline-section  > div p {
   display: none; /* Hide paragraph text */
 }
 
 /* Show the card text when hovering over the card */
-section > div:hover p {
+.timeline-section  > div:hover p {
   display: block; /* Show paragraph text on hover */
   margin-top: 12px;
   color: #444;
@@ -117,7 +117,7 @@ section > div:hover p {
 }
 
 /* Card text */
-section p {
+.timeline-section  p {
   font-size: 0.98em;
   color: #444;
 }
@@ -130,6 +130,87 @@ body > p {
   margin-bottom: 32px;
   margin-top: 0;
   letter-spacing: 0.5px;
+}
+
+/* === 3-Column Content Section Styles === */
+/* Style the section container */
+.three-col-section {
+  background: #eaf3fb; /* Light blue background for contrast */
+  padding: 32px 16px;
+  text-align: center; /* Center the section horizontally */
+  width: 100%; /* Limit the width for centering */
+  margin-left: auto;  /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,104,181,0.07); /* Soft shadow */
+  
+}
+
+/* Center the row inside the section */
+.three-col-section .row {
+  justify-content: center; /* Center Bootstrap columns in the row */
+  width: 100%;
+}
+
+/* Style each column/card */
+.three-col-card {
+  background: white;
+  border: 1px solid #d0e2f3;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,104,181,0.07);
+  padding: 24px 16px;
+  margin-bottom: 24px;
+  text-align: center; /* Center text and icons */
+}
+
+/* Style the icon at the top of each card */
+.three-col-card .icon {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Style the heading */
+.three-col-card h2 {
+  margin: 12px 0 10px 0;
+  font-size: 1.15em;
+  color: #0068b5;
+}
+
+/* Style the paragraph */
+.three-col-card p {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* Style the Learn More button */
+.three-col-card a {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #0068b5;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.98em;
+  transition: background 0.2s;
+}
+
+.three-col-card a:hover {
+  background: #00508e;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (max-width: 233px) {
+  .three-col-section .row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .three-col-card {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Responsive: stack cards on small screens */
